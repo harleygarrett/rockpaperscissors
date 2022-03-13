@@ -1,4 +1,4 @@
-from tkinter import Tk, Frame, Label, Button, Text, StringVar, ttk, Message, Label
+from tkinter import Tk, Frame, PhotoImage, Label, Button, Text, StringVar, ttk, Message, Label
 from tkinter.messagebox import showinfo
 import random
 from functools import partial
@@ -8,20 +8,27 @@ from functions import play, result
 if __name__ == '__main__':
 
     # window setup
-
     window = Tk()
     window_setup(window, 'Rock Paper Scissors')
 
-    # logic
-
-    options = ['rock', 'paper', 'scissors']
+    # init variables
+    OPTIONS = ['rock', 'paper', 'scissors']
+    IMAGES = [PhotoImage(
+        file='/Users/harleygarrett/PycharmProjects/cfg-python/project/tkinterapp/img/rock-left.gif'), PhotoImage(
+            file='/Users/harleygarrett/PycharmProjects/cfg-python/project/tkinterapp/img/paper-left.gif'), PhotoImage(
+                file='/Users/harleygarrett/PycharmProjects/cfg-python/project/tkinterapp/img/scissors-left.gif')]
+    # mutable
     selected = StringVar()
-
+    # for incrementing
     index = 0
     users_score = 0
     programs_score = 0
 
+    # radio_image = PhotoImage(
+    #     file='/Users/harleygarrett/PycharmProjects/cfg-python/project/tkinterapp/img/paper-left.gif')
+
     # play
-    play(window, options, selected, index, users_score, programs_score)
+    play(window, OPTIONS, IMAGES, selected, index,
+         users_score, programs_score)
 
     window.mainloop()

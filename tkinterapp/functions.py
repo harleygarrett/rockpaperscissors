@@ -1,11 +1,14 @@
-from tkinter import Tk, Frame, Label, Button, Text, StringVar, ttk, Message, Label
-from tkinter.messagebox import showinfo
+from tkinter import BOTTOM, Tk, Frame, Label, Button, Text, StringVar, ttk, Message, Label, PhotoImage, NONE
+# from tkinter.messagebox import showinfo
 import random
 from functools import partial
+import tkinter as tk
+from turtle import width
 
 
-def play(window, options, selected, index, users_score, programs_score):
+def play(window, options, images, selected, index, users_score, programs_score):
 
+    # reset variable
     selected = StringVar()
 
     for widget in window.winfo_children():
@@ -25,8 +28,10 @@ def play(window, options, selected, index, users_score, programs_score):
                 text=option,
                 value=option,
                 variable=selected,
-                command=partial(result, window, options, selected,
+                command=partial(result, window, options, images, selected,
                                 index, users_score, programs_score),
+                image=images[options.index(option)],
+                compound=tk.BOTTOM
             )
             radio.pack()
 
@@ -39,12 +44,13 @@ def play(window, options, selected, index, users_score, programs_score):
         # button.pack()
 
 
-def result(window, options, selected, index, users_score, programs_score):
+def result(window, options, images, selected, index, users_score, programs_score):
 
     for widget in window.winfo_children():
         widget.destroy()
 
     programs_choice = random.randint(0, 2)
+
     users_choice = options.index(selected.get())
 
     message = f'Round {index + 1} \nUser chose {options[users_choice]} \nProgram chose {options[programs_choice]}\n'
@@ -84,7 +90,7 @@ def result(window, options, selected, index, users_score, programs_score):
         button = Button(
             window,
             text='Play Again',
-            command=partial(play, 0, 0, 0)
+            command=partial(play, window, options, images, selected, 0, 0, 0)
         )
 
         button.pack()
@@ -95,7 +101,7 @@ def result(window, options, selected, index, users_score, programs_score):
         button = Button(
             window,
             text=f'Play Round {index + 1}',
-            command=partial(play, window, options, selected,
+            command=partial(play, window, options, images, selected,
                             index, users_score, programs_score)
         )
 
