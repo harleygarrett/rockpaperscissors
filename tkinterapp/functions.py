@@ -28,10 +28,10 @@ def play(window, options, images, selected, index, users_score, programs_score):
                 text=option,
                 value=option,
                 variable=selected,
-                command=partial(result, window, options, images, selected,
-                                index, users_score, programs_score),
-                image=images[options.index(option)],
-                compound=tk.BOTTOM
+                command=partial(result, window, options, images,
+                                selected, index, users_score, programs_score),
+                image=images[options.index(option)][0],
+                compound=tk.TOP
             )
             radio.pack()
 
@@ -52,6 +52,16 @@ def result(window, options, images, selected, index, users_score, programs_score
     programs_choice = random.randint(0, 2)
 
     users_choice = options.index(selected.get())
+
+    Label(
+        window,
+        image=images[users_choice][1]
+    ).pack()
+
+    Label(
+        window,
+        image=images[programs_choice][1]
+    ).pack()
 
     message = f'Round {index + 1} \nUser chose {options[users_choice]} \nProgram chose {options[programs_choice]}\n'
 
