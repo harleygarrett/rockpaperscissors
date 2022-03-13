@@ -24,5 +24,7 @@ def window_setup(window, title):
     window.maxsize(1200, 800)
 
     # style
+    # window.configure(bg='white')
+    window.option_add('*Font', '"Syne Mono"')
     # style = ttk.Style(window)
     # style.theme_use('classic')

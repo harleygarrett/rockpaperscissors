@@ -15,10 +15,10 @@ def play(window, options, images, selected, index, users_score, programs_score):
         widget.destroy()
 
     title = Message(window, text=f'Rock Paper Scissors - Round {index + 1}')
-    title.pack()
+    title.grid()
 
     label = Label(text='Select your choice:')
-    label.pack()
+    label.grid()
 
     if index < 5:
 
@@ -31,9 +31,12 @@ def play(window, options, images, selected, index, users_score, programs_score):
                 command=partial(result, window, options, images,
                                 selected, index, users_score, programs_score),
                 image=images[options.index(option)][0],
-                compound=tk.TOP
+                # compound=tk.TOP
+                compound=NONE
             )
-            radio.pack()
+            # style = ttk.Style()
+            # style.configure('TRadiobutton', '"Syne Mono"')
+            radio.grid()
 
         # submit with button v submit on selection
         # button = Button(
@@ -41,7 +44,7 @@ def play(window, options, images, selected, index, users_score, programs_score):
         #     text='Play',
         #     command=partial(result, index, users_score, programs_score)
         # )
-        # button.pack()
+        # button.grid()
 
 
 def result(window, options, images, selected, index, users_score, programs_score):
@@ -55,13 +58,13 @@ def result(window, options, images, selected, index, users_score, programs_score
 
     Label(
         window,
-        image=images[users_choice][1]
-    ).pack()
+        image=images[users_choice][0]
+    ).grid(row=2, column=1)
 
     Label(
         window,
         image=images[programs_choice][1]
-    ).pack()
+    ).grid(row=2, column=2)
 
     message = f'Round {index + 1} \nUser chose {options[users_choice]} \nProgram chose {options[programs_choice]}\n'
 
@@ -94,16 +97,17 @@ def result(window, options, images, selected, index, users_score, programs_score
             message += '\nYou lose.'
 
     message = Message(window, text=message)
-    message.pack()
+    message.grid(row=1, column=1, columnspan=2)
 
     if index == 5:
         button = Button(
             window,
             text='Play Again',
-            command=partial(play, window, options, images, selected, 0, 0, 0)
+            command=partial(play, window, options, images,
+                            selected, 0, 0, 0)
         )
 
-        button.pack()
+        button.grid()
 
         index = 0
 
@@ -115,4 +119,4 @@ def result(window, options, images, selected, index, users_score, programs_score
                             index, users_score, programs_score)
         )
 
-        button.pack()
+        button.grid()
