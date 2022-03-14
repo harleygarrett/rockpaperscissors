@@ -14,7 +14,7 @@ def play(window, options, images, selected, index, users_score, programs_score):
     for widget in window.winfo_children():
         widget.destroy()
 
-    title = Message(window, text=f'Round {index + 1}')
+    title = Label(window, text=f'Round {index + 1}')
     title.grid(row=1, column=0, columnspan=5)
 
     # title.grid_rowconfigure(1, weight=1)
@@ -106,11 +106,11 @@ def result(window, options, images, selected, index, users_score, programs_score
 
     score_message += f'\nUser: {users_score} | Program: {programs_score}\n'
 
-    round_message = Message(window, text=round_message)
-    users_choice_message = Message(window, text=users_choice_message)
-    programs_choice_message = Message(window, text=programs_choice_message)
-    result_message = Message(window, text=result_message)
-    score_message = Message(window, text=score_message)
+    round_message = Label(window, text=round_message)
+    users_choice_message = Label(window, text=users_choice_message)
+    programs_choice_message = Label(window, text=programs_choice_message)
+    result_message = Label(window, text=result_message)
+    score_message = Label(window, text=score_message)
 
     round_message.grid(row=0, column=0, columnspan=5, sticky=tk.EW)
     users_choice_message.grid(row=1, column=0, columnspan=3)
@@ -127,7 +127,7 @@ def result(window, options, images, selected, index, users_score, programs_score
             final_message += '\nIt\'s a tie!'
         else:
             final_message += '\nYou lose.'
-        final_message = Message(window, text=final_message)
+        final_message = Label(window, text=final_message)
         final_message.grid(row=5, column=0, columnspan=5, sticky=tk.EW)
 
         button = Button(

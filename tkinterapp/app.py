@@ -27,9 +27,6 @@ if __name__ == '__main__':
     users_score = 0
     programs_score = 0
 
-    # radio_image = PhotoImage(
-    #     file='/Users/harleygarrett/PycharmProjects/cfg-python/project/tkinterapp/img/paper-left.gif')
-
     # play
     play(window, OPTIONS, IMAGES, selected, index,
          users_score, programs_score)
