@@ -4,20 +4,25 @@ from functools import partial
 import tkinter as tk
 
 
+# function shows the play screen
 def play(window, options, images, selected, index, users_score, programs_score):
 
     # reset variable
     selected = StringVar()
 
+    # remove existing content from the screen
     for widget in window.winfo_children():
         widget.destroy()
 
+    # round label
     title = Label(window, text=f'Round {index + 1}')
     title.grid(row=1, column=0, columnspan=5)
 
+    # choice instruction label
     label = Label(text='Select your choice:')
     label.grid(row=2, column=0, columnspan=5)
 
+    # style radio buttons
     style = ttk.Style(window)
     style.configure('IndicatorOff.TRadiobutton',
                     indicatorrelief=tk.FLAT,
@@ -28,8 +33,10 @@ def play(window, options, images, selected, index, users_score, programs_score):
     style.map('IndicatorOff.TRadiobutton',
               background=[('selected', '#ececec'), ('active', '#ececec')])
 
+    # loop 5 rounds
     if index < 5:
 
+        # render a radio per option in the list, with images sourced from the matching index of the images array
         for option in options:
             radio = ttk.Radiobutton(
                 window,
@@ -46,6 +53,7 @@ def play(window, options, images, selected, index, users_score, programs_score):
             radio.grid(row=3, column=options.index(option) + 1)
 
 
+# function shows the results screen
 def result(window, options, images, selected, index, users_score, programs_score):
 
     for widget in window.winfo_children():
