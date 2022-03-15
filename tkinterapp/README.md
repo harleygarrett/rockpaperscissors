@@ -1,6 +1,6 @@
 # Rock Paper Scissors
 
-_Course completed 15/03/22_
+_Course presentation: 15/03/22_
 
 Rock Paper Scissors program created for the final project of the Code First Girls x Experian Introduction to Python Career Switcher course.
 
@@ -27,3 +27,10 @@ In this project, the user’s playmate would be the computer or the program that
 - `/tkinter` contains all the code used in the running of the program
 - `/tkinterapp/lib` contains external code used for testing
 - `/tkinterapp/img` contains images cropped from free stock illustrations
+
+---
+
+## Tasking
+
+- [ ] Extract out function comparing user's choice and program's choice
+- [ ] Extract out functions for rendering label and image content

@@ -56,27 +56,34 @@ def play(window, options, images, selected, index, users_score, programs_score):
 # function shows the results screen
 def result(window, options, images, selected, index, users_score, programs_score):
 
+    # remove existing content from the screen
     for widget in window.winfo_children():
         widget.destroy()
 
+    # program choses
     programs_choice = random.randint(0, 2)
 
+    # fetch user's choice
     users_choice = options.index(selected.get())
 
+    # init user's choice label
     Label(
         window,
         image=images[users_choice][0]
     ).grid(row=2, column=0, columnspan=3)
 
+    # init programs choice label
     Label(
         window,
         image=images[programs_choice][1]
     ).grid(row=2, column=2, columnspan=5)
 
+    # render round details
     round_message = f'Round {index + 1}\n'
     users_choice_message = f'User chose {options[users_choice]}'
     programs_choice_message = f'Program chose {options[programs_choice]}'
 
+    # check who wins
     if users_choice == programs_choice:
         result_message = '\nIt\'s a tie!\n'
     elif (users_choice == 0 and programs_choice == 2) \
@@ -88,8 +95,10 @@ def result(window, options, images, selected, index, users_score, programs_score
         result_message = f'\nProgram wins\n'
         programs_score += 1
 
+    # increment the round
     index += 1
 
+    # init score based on round number
     if index == 5:
         score_message = '\nThe final score is:\n'
     else:
@@ -97,12 +106,14 @@ def result(window, options, images, selected, index, users_score, programs_score
 
     score_message += f'\nUser: {users_score} | Program: {programs_score}\n'
 
+    # init messages as labels
     round_message = Label(window, text=round_message)
     users_choice_message = Label(window, text=users_choice_message)
     programs_choice_message = Label(window, text=programs_choice_message)
     result_message = Label(window, text=result_message)
     score_message = Label(window, text=score_message)
 
+    # render labels
     round_message.grid(row=0, column=0, columnspan=5, sticky=tk.EW)
     users_choice_message.grid(row=1, column=0, columnspan=3)
     programs_choice_message.grid(row=1, column=2, columnspan=5)
@@ -110,6 +121,7 @@ def result(window, options, images, selected, index, users_score, programs_score
     result_message.grid(row=3, column=0, columnspan=5, sticky=tk.EW)
     score_message.grid(row=4, column=0, columnspan=5, sticky=tk.EW)
 
+    # conditionally render end of game message and play button
     if index == 5:
         final_message = 'GAME OVER\n'
         if users_score > programs_score:
