@@ -23,7 +23,6 @@ def window_setup(window, title):
     window.minsize(200, 200)
     window.maxsize(800, 800)
 
-    # window.grid_rowconfigure(0, weight=1)
     window.grid_columnconfigure(0, weight=1)
     window.grid_columnconfigure(1, weight=1)
     window.grid_columnconfigure(2, weight=1)

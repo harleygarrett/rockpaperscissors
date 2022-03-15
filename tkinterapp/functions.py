@@ -1,9 +1,7 @@
-from tkinter import BOTTOM, Tk, Frame, Label, Button, Text, StringVar, ttk, Message, Label, PhotoImage, NONE
-# from tkinter.messagebox import showinfo
+from tkinter import Label, Button, StringVar, ttk, Label
 import random
 from functools import partial
 import tkinter as tk
-from turtle import width
 
 
 def play(window, options, images, selected, index, users_score, programs_score):
@@ -16,9 +14,6 @@ def play(window, options, images, selected, index, users_score, programs_score):
 
     title = Label(window, text=f'Round {index + 1}')
     title.grid(row=1, column=0, columnspan=5)
-
-    # title.grid_rowconfigure(1, weight=1)
-    # title.grid_columnconfigure(1, weight=1)
 
     label = Label(text='Select your choice:')
     label.grid(row=2, column=0, columnspan=5)
@@ -45,22 +40,10 @@ def play(window, options, images, selected, index, users_score, programs_score):
                                 selected, index, users_score, programs_score),
                 image=images[options.index(option)][0],
                 compound=tk.TOP,
-                # compound=NONE,
                 style='IndicatorOff.TRadiobutton'
             )
-            # style = ttk.Style()
-            # style.configure('TRadiobutton', '"Syne Mono"')
-            radio.grid(row=3, column=options.index(option) + 1)
-            # radio.grid_rowconfigure(1, weight=1)
-            # radio.grid_columnconfigure(1, weight=1)
 
-        # submit with button v submit on selection
-        # button = Button(
-        #     window,
-        #     text='Play',
-        #     command=partial(result, index, users_score, programs_score)
-        # )
-        # button.grid()
+            radio.grid(row=3, column=options.index(option) + 1)
 
 
 def result(window, options, images, selected, index, users_score, programs_score):
