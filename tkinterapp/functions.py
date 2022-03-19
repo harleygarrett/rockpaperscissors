@@ -4,7 +4,22 @@ from functools import partial
 import tkinter as tk
 
 
+def checkResult():
+    if users_choice == programs_choice:
+        result_message = '\nIt\'s a tie!\n'
+    elif (users_choice == 0 and programs_choice == 2) \
+            or (users_choice == 1 and programs_choice == 0) \
+            or (users_choice == 2 and programs_choice == 1):  # rock
+        result_message = f'\nUser wins\n'
+        users_score += 1
+    else:
+        result_message = f'\nProgram wins\n'
+        programs_score += 1
+
+
 # function shows the play screen
+
+
 def play(window, options, images, selected, index, users_score, programs_score):
 
     # reset variable
@@ -84,16 +99,7 @@ def result(window, options, images, selected, index, users_score, programs_score
     programs_choice_message = f'Program chose {options[programs_choice]}'
 
     # check who wins
-    if users_choice == programs_choice:
-        result_message = '\nIt\'s a tie!\n'
-    elif (users_choice == 0 and programs_choice == 2) \
-            or (users_choice == 1 and programs_choice == 0) \
-            or (users_choice == 2 and programs_choice == 1):  # rock
-        result_message = f'\nUser wins\n'
-        users_score += 1
-    else:
-        result_message = f'\nProgram wins\n'
-        programs_score += 1
+    checkResult()
 
     # increment the round
     index += 1

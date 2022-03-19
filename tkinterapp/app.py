@@ -14,12 +14,12 @@ if __name__ == '__main__':
     # init variables
     OPTIONS = ['rock', 'paper', 'scissors']
     IMAGES = [[PhotoImage(
-        file='/Users/harleygarrett/PycharmProjects/cfg-python/project/tkinterapp/img/rock-left.gif'), PhotoImage(
-        file='/Users/harleygarrett/PycharmProjects/cfg-python/project/tkinterapp/img/rock-right.gif')], [PhotoImage(
-            file='/Users/harleygarrett/PycharmProjects/cfg-python/project/tkinterapp/img/paper-left.gif'), PhotoImage(
-            file='/Users/harleygarrett/PycharmProjects/cfg-python/project/tkinterapp/img/paper-right.gif')], [PhotoImage(
-                file='/Users/harleygarrett/PycharmProjects/cfg-python/project/tkinterapp/img/scissors-left.gif'), PhotoImage(
-                file='/Users/harleygarrett/PycharmProjects/cfg-python/project/tkinterapp/img/scissors-right.gif')]]
+        file='/Users/harleygarrett/code/py/cfg/project/tkinterapp/img/rock-left.gif'), PhotoImage(
+        file='/Users/harleygarrett/code/py/cfg/project/tkinterapp/img/rock-right.gif')], [PhotoImage(
+            file='/Users/harleygarrett/code/py/cfg/project/tkinterapp/img/paper-left.gif'), PhotoImage(
+            file='/Users/harleygarrett/code/py/cfg/project/tkinterapp/img/paper-right.gif')], [PhotoImage(
+                file='/Users/harleygarrett/code/py/cfg/project/tkinterapp/img/scissors-left.gif'), PhotoImage(
+                file='/Users/harleygarrett/code/py/cfg/project/tkinterapp/img/scissors-right.gif')]]
     # mutable
     selected = StringVar()
     # for incrementing
