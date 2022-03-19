@@ -1,9 +1,6 @@
-from tkinter import Tk, Frame, PhotoImage, Label, Button, Text, StringVar, ttk, Message, Label
-from tkinter.messagebox import showinfo
-import random
-from functools import partial
+from tkinter import Tk, PhotoImage, StringVar
 from tkintersetup import window_setup
-from functions import play, result
+from functions import play
 
 if __name__ == '__main__':
 
